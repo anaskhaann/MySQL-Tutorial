@@ -43,6 +43,10 @@ SELECT * FROM passengers WHERE Pclass = 1;
 -- We are using text in age because our csv data has stored age in text format not integer
 SELECT Name from passengers WHERE Age > "22";
 
+-- And Operator
+SELECT * from passengers WHERE (Pclass = 3 AND Survived=0);
+
+SELECT * from passengers WHERE (Age BETWEEN "10" AND "20")
 
 
 
