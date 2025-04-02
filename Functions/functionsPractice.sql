@@ -59,5 +59,15 @@ SELECT avg(revenue) As "Average_Income" from BolMovies;
 SELECT round(avg(revenue),3) As "Average_Income" from BolMovies;
 SELECT round(avg(revenue/10000000),3) As "Average_Income_In_CR" from BolMovies;
 
+/*Count and Disting COunt*/
+
+SELECT movie , Actor FROM BolMovies;
+
+
+SELECT count(Actor) FROM BolMovies;
+
+SELECT DISTINCT Actor FROM BolMovies;
+
+SELECT count(DISTINCT Actor) FROM BolMovies;
 
 
