@@ -70,4 +70,52 @@ SELECT DISTINCT Actor FROM BolMovies;
 
 SELECT count(DISTINCT Actor) FROM BolMovies;
 
+/*OrderBy Clause*/
+
+-- Order with Profit
+
+SELECT movie, (revenue-budget) As profit FROM BolMovies;
+
+-- Ascending order
+SELECT movie, (budget - revenue) As profit FROM BolMovies ORDER BY profit;
+
+-- Descending
+SELECT movie, (budget - revenue) As profit FROM BolMovies ORDER BY profit DESC;
+
+-- Top 5
+SELECT movie, (budget - revenue) As profit FROM BolMovies ORDER BY profit DESC LIMIT 5;
+
+-- Worst 5
+SELECT movie, (budget - revenue) As profit FROM BolMovies ORDER BY profit LIMIT 5;
+
+
+/*
+Sorting based on genre and actors
+*/
+
+SELECT * FROM BolMovies ORDER BY Genre;
+
+
+SELECT * FROM BolMovies ORDER BY movie, Genre DESC;
+
+
+
+/*GROUPING*/
+
+-- top 5 actors who have done maximum number of movies
+
+SELECT Actor, count(*) AS num_movies FROM BolMovies GROUP BY Actor;
+
+
+SELECT Actor, count(*) AS num_movies FROM BolMovies GROUP BY Actor ORDER by num_movies DESC;
+
+
+SELECT Actor, count(*) AS num_movies FROM BolMovies GROUP BY Actor ORDER by num_movies DESC LIMIT 5;
+
+
+
+
+
+
+
 
