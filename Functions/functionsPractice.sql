@@ -112,6 +112,50 @@ SELECT Actor, count(*) AS num_movies FROM BolMovies GROUP BY Actor ORDER by num_
 
 SELECT Actor, count(*) AS num_movies FROM BolMovies GROUP BY Actor ORDER by num_movies DESC LIMIT 5;
 
+-- Which genre has earned a most profit
+
+SELECT Genre, sum(budget - revenue) AS total_profit FROM BolMovies GROUP BY Genre ORDER BY total_profit;
+
+
+SELECT Genre, sum(budget - revenue) AS total_profit FROM BolMovies GROUP BY Genre ORDER BY total_profit DESC LIMIT 5;
+
+-- Which director has most profitable movies
+
+SELECT Director, avg(budget - revenue) AS average_profit FROM BolMovies GROUP BY Director;
+
+SELECT Director, avg(budget - revenue) AS average_profit FROM BolMovies GROUP BY Director ORDER BY average_profit DESC LIMIT 10;
+
+-- Movie with max budget 
+
+SELECT movie, budget FROM BolMovies ORDER by budget DESC LIMIT 5;
+
+SELECT movie, budget FROM BolMovies GROUP BY movie ORDER by budget DESC LIMIT 5;
+
+-- Min Budget
+SELECT movie, budget FROM BolMovies ORDER by budget LIMIT 5;
+
+
+/*Which actor and director combo has earned maximum profits*/
+
+SELECT Actor, Director, sum(budget - revenue) as total_earnings FROM BolMovies GROUP BY Actor,Director ORDER BY total_earnings DESC;
+
+/*Which actor and Genre combo has earned maximum profits*/
+
+SELECT Actor, Genre, sum(budget - revenue) as total_earnings FROM BolMovies GROUP BY Actor,Genre ORDER BY total_earnings DESC;
+
+-- Top 5 actor who has earned most in bollywood
+
+SELECT Actor, sum(budget-revenue) as total_profits FROM BolMovies GROUP BY Actor ORDER By total_profits DESC LIMIT 10;
+
+
+-- Actors which recive on an average about 500 to 600 screens
+
+SELECT Actor, avg(screens) as openings 
+FROM BolMovies 
+GROUP BY Actor HAVING openings > 1000
+ORDER BY openings DESC;
+
+
 
 
 
