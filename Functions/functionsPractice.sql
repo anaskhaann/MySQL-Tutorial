@@ -145,7 +145,9 @@ SELECT Actor, Genre, sum(budget - revenue) as total_earnings FROM BolMovies GROU
 
 -- Top 5 actor who has earned most in bollywood
 
-SELECT Actor, sum(budget-revenue) as total_profits FROM BolMovies GROUP BY Actor ORDER By total_profits DESC LIMIT 10;
+SELECT Actor, sum(budget-revenue) as total_profits 
+FROM BolMovies GROUP BY Actor 
+ORDER By total_profits DESC LIMIT 10;
 
 
 -- Actors which recive on an average about 500 to 600 screens
@@ -153,7 +155,7 @@ SELECT Actor, sum(budget-revenue) as total_profits FROM BolMovies GROUP BY Actor
 SELECT Actor, avg(screens) as openings 
 FROM BolMovies 
 GROUP BY Actor HAVING openings > 1000
-ORDER BY openings DESC;
+ORDER BY openings DESC LIMIT 5;
 
 
 
