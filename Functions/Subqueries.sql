@@ -30,5 +30,17 @@ SELECT actor FROM (SELECT Actor, (sum(budget-revenue)) as profit FROM BolMovies 
 SELECT * FROM BolMovies WHERE Actor IN (SELECT actor FROM (SELECT Actor, (sum(budget-revenue)) as profit FROM BolMovies GROUP by Actor ORDER BY profit DESC LIMIT 5) as A);
 
 
+/*
+Example of correlated query: top most earned movie of each genre
+*/
+
+SELECT movie,Genre FROM BolMovies;
+
+-- Profit of each movie
+SELECT movie,Genre, (budget - revenue) AS profit FROM BolMovies;
+
+
+SELECT movie,Genre, abs(budget - revenue) AS profit FROM BolMovies A 
+WHERE (budget - revenue) = (SELECT MAX(budget - revenue) FROM BolMovies B WHERE(A.Genre = B.Genre)) ORDER BY profit DESC;
 
 
