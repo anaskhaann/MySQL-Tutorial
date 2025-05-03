@@ -49,3 +49,16 @@ ALTER TABLE movies MODIFY COLUMN budget int;
 SELECT name,budget FROM movies WHERE budget = (SELECT MAX(budget) FROM movies);
 
 
+/*
+q.5 - movie with starting letter a and have 5 characters
+*/
+
+SELECT * FROM movies WHERE name LIKE "A%";
+
+
+SELECT * FROM movies WHERE name LIKE "A____";
+
+-- Movies with man in ending
+
+SELECT * FROM movies WHERE name LIKE "%man";
+
