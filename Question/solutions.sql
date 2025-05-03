@@ -40,5 +40,12 @@ SELECT * FROM movies ORDER BY score LIMIT 5;
 
 SELECT * FROM movies ORDER BY score LIMIT 1,1;
 
+/*q.4 Find max without order by.
+1- first we are converting our varchar budget to integer
+ALTER TABLE movies MODIFY COLUMN budget int;
+2- nested queries will be used
+*/
+
+SELECT name,budget FROM movies WHERE budget = (SELECT MAX(budget) FROM movies);
 
 
