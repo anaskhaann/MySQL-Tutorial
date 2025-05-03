@@ -83,3 +83,18 @@ END as "Type"
 from passengers;
 
 
+/*q.8: Category wise top value*/
+-- TOp movies of each genre based on imdb rating/score
+
+SELECT * FROM movies;
+
+SELECT DISTINCT(genre) FROM movies;
+
+
+SELECT name, genre, score FROM movies "m1" 
+WHERE score = (SELECT MAX(score) FROM movies "m2" WHERE m2.genre=m1.genre);
+
+
+SELECT name, genre, score FROM movies "m1" 
+WHERE score = (SELECT MAX(score) FROM movies "m2" WHERE m2.genre=m1.genre) ORDER BY score DESC;
+
