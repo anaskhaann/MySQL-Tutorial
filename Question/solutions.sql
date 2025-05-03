@@ -62,3 +62,24 @@ SELECT * FROM movies WHERE name LIKE "A____";
 
 SELECT * FROM movies WHERE name LIKE "%man";
 
+
+/*
+Using titanic databse, if family size is something then return the type of the family
+*/
+
+SELECT * from passengers;
+
+-- to get the size
+SELECT Name,(SibSp + Parch) as "FamilySize"
+
+-- Result
+SELECT Name,(SibSp + Parch) as "FamilySize",
+CASE
+	WHEN (SibSp + Parch) =0 THEN "No Family"
+	WHEN (SibSp + Parch) <=3 THEN "Small Family"
+	WHEN (SibSp + Parch)>3 AND (SibSp + Parch)<=6 THEN "Medium Family"
+	ELSE "Large Family"
+END as "Type"
+from passengers;
+
+
